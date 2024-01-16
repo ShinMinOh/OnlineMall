@@ -12,6 +12,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -37,4 +38,11 @@ public class CartItem extends BaseTime {
   @JoinColumn(name = "item_id")
   private Item item;
 
+  @Builder
+  public CartItem(Long id, int count, Cart cart, Item item) {
+    this.id = id;
+    this.count = count;
+    this.cart = cart;
+    this.item = item;
+  }
 }

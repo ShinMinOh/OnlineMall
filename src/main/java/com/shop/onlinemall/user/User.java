@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -34,4 +35,14 @@ public class User {
 
   @Enumerated(EnumType.STRING)
   private Role role;
+
+  @Builder
+  public User(Long id, String address, String email, String name, String password, Role role) {
+    this.id = id;
+    this.address = address;
+    this.email = email;
+    this.name = name;
+    this.password = password;
+    this.role = role;
+  }
 }

@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -39,5 +40,12 @@ public class OrderItem {
 
   private int orderPrice; // 주문 총 가격
 
-
+  @Builder
+  public OrderItem(Long id, Item item, Order order, int count, int orderPrice) {
+    this.id = id;
+    this.item = item;
+    this.order = order;
+    this.count = count;
+    this.orderPrice = orderPrice;
+  }
 }

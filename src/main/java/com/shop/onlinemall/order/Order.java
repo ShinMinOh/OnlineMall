@@ -16,6 +16,7 @@ import jakarta.persistence.Table;
 import java.lang.reflect.Member;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -39,8 +40,10 @@ public class Order extends BaseTime {
   @Enumerated(value = EnumType.STRING)
   private OrderStatus orderStatus;
 
-
-
-
-
+  @Builder
+  public Order(Long id, User user, OrderStatus orderStatus) {
+    this.id = id;
+    this.user = user;
+    this.orderStatus = orderStatus;
+  }
 }
