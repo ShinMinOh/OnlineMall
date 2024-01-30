@@ -24,9 +24,6 @@ public class User {
   @Column(name = "user_id")
   private Long id;
 
-  private String address;
-
-  @Column(unique = true)
   private String email;
 
   private String name;
@@ -37,9 +34,8 @@ public class User {
   private Role role;
 
   @Builder
-  public User(Long id, String address, String email, String name, String password, Role role) {
+  public User(Long id, String email, String name, String password, Role role) {
     this.id = id;
-    this.address = address;
     this.email = email;
     this.name = name;
     this.password = password;
